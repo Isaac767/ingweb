@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Plan Docente</title>
+</head>
+<link rel="stylesheet" href="styles/styles.css">
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Sección izquierda: Login -->
+        <div class="login-section">
+            <div class="logo">
+                <!-- Aquí va la imagen de la UTPL -->
+                <img src="img/images.png" alt="Logo UTPL">
+            </div>
+            <div class="login-form">
+                <h2>Ingreso al sistema</h2>
+                <p>Ingrese el usuario y clave institucional</p>
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit">Ingresar →</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sección derecha: Información del sistema -->
+        <div class="info-section">
+            <h1>Sistema de gestión de Plan docente</h1>
+            <div class="manuales">
+                <p>Manuales de Usuario</p>
+                <button id="ver-manuales">Ver</button>
+                <div id="manuales-lista" style="display: none;">
+                    <!-- Aquí se mostrará el contenido de los manuales cuando el botón se presione -->
+                    <ul>
+                        <li>
+                            MANUAL PARA ELABORACIÓN DEL PLAN MODALIDAD PRESENCIAL 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            MANUAL PARA ELABORACIÓN DEL PLAN MODALIDAD A DISTANCIA 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            MANUAL PARA REVISOR 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            MANUAL EQUIPO DE CALIDAD 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            MANUAL FIRMA ELECTRÓNICA DE DOCUMENTOS 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            CAPACITACIÓN JUEVES 26 DE SEPTIEMBRE 2024: DE 8:00 - 8:30 AM 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            SOPORTE TÉCNICO: SALA ZOOM LUNES 7 Y 10 DE OCT DE 9:00 AM HASTA 10:00 AM 
+                            <a href="#">Ir →</a>
+                        </li>
+                        <li>
+                            MANUAL PARA INGRESO DE INFORMACIÓN INICIAL 
+                            <a href="#">Ir →</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Aquí va la imagen principal de la derecha -->
+            <img src="img/Reingenieria-RRHH-800x400.jpg" alt="Imagen de Sistema de Gestión">
+        </div>
+    </div>
+
+    <!-- Script para mostrar/ocultar la lista de manuales -->
+    <script>
+        document.getElementById('ver-manuales').addEventListener('click', function() {
+            var lista = document.getElementById('manuales-lista');
+            if (lista.style.display === 'none') {
+                lista.style.display = 'block';
+            } else {
+                lista.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
