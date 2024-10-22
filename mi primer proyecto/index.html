@@ -4,32 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            display: flex;
+            padding: 10px;
+        }
+        header img {
+            height: 60px;
+        }
+        header h1 {
+            margin: 0;
+            align-self: center;
+            flex: 1;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .menu {
+            background-color: #FFD700;
+            width: 25%;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .menu li {
+            padding: 10px;
+            background-color: #003366;
+            color: white;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        .content {
+            width: 75%;
+            padding: 15px;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <header style="display: flex;"> 
-        <div style="width: 20%;">
+    <header> 
+        <div style="width: 80%;">
             <img src="img/utpllg.png" alt="LogoUTPL">
         </div>
-        <div style="width: 80%;">
+        <div style="width: 20%; display: flex; align-items: center; justify-content: center;">
             <h1>Header de la página</h1>
         </div>
-        
-        
     </header>
-    <hr/>
-    <div style="display: flex;">
-        <div style="width: 80%; background-color:aqua;">
-            Menú izquierdo
+    <div class="container">
+        <div class="menu">
+            <h2 style="margin-top: 0;">Menú izquierdo</h2>
             <ul>
-                <li>Opcion 1</li>
-                <li>Opcion 2</li>
-                <li>Opcion 3</li>
+                <li>Opción 1</li>
+                <li>Opción 2</li>
+                <li>Opción 3</li>
             </ul>
         </div>
-        <div style="width: 80%;margin-left: 20px;">área de trabajo</div>
+        <div class="content">
+            <h2>Área de trabajo</h2>
+            <p>Aquí va el contenido principal de la página.</p>
+        </div>
     </div>
-    <footer style="margin-top: 50px;">
+    <footer>
         Este es mi pie de página
     </footer>
 </body>
 </html>
+
