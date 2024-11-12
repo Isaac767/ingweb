@@ -1,3 +1,5 @@
+#Integrantes del grupo: Ana Guamán, Rubén Jimenez, Steven Neira
+
 import pymysql  # type: ignore
 
 # Conexión a la base de datos
@@ -10,11 +12,17 @@ conn = pymysql.connect(
 )
 
 # Función para insertar una nueva carrera
-def insertar_carrera(codigo, nombre, universidad, modalidad_id):
+def insertar_carrera(codigo, nombre, modalidad_id):
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO carrera (codigo, nombre, universidad, modalidad_id) VALUES (%s, %s, %s, %s)", 
-                   (codigo, nombre, universidad, modalidad_id))
-    conn.commit()
+    try:
+        cursor.execute(
+            "INSERT INTO carrera (codigo, nombre, modalidad_id) VALUES (%s, %s, %s)", 
+            (codigo, nombre, modalidad_id)
+        )
+        conn.commit()
+        print("Carrera insertada correctamente.")
+    except pymysql.Error as e:
+        print(f"Error al insertar la carrera: {e}")
 
 # Función para consultar todas las carreras
 def consultar_carreras():
@@ -22,7 +30,7 @@ def consultar_carreras():
     cursor.execute('SELECT * FROM carrera')
     resultados = cursor.fetchall()
     for fila in resultados:
-        print(f"ID: {fila[0]} - Código: {fila[1]} - Nombre: {fila[2]} - Universidad: {fila[3]} - Modalidad ID: {fila[4]}")
+        print(f"ID: {fila[0]} - Código: {fila[1]} - Nombre: {fila[2]} - Modalidad ID: {fila[3]}")
 
 # Función para consultar una carrera por su código
 def consultar_carrera_por_codigo(codigo):
@@ -30,7 +38,7 @@ def consultar_carrera_por_codigo(codigo):
     cursor.execute('SELECT * FROM carrera WHERE codigo = %s', (codigo,))
     resultado = cursor.fetchone()
     if resultado:
-        print(f"ID: {resultado[0]} - Código: {resultado[1]} - Nombre: {resultado[2]} - Universidad: {resultado[3]} - Modalidad ID: {resultado[4]}")
+        print(f"ID: {resultado[0]} - Código: {resultado[1]} - Nombre: {resultado[2]} - Modalidad ID: {resultado[3]}")
     else:
         print(f"No se encontró la carrera con código {codigo}")
 
@@ -54,12 +62,11 @@ def contar_carreras():
     print(f"Total de carreras: {total}")
 
 # Llamadas a las funciones de prueba
-insertar_carrera('SIS30', 'CIENCIAS DE LA COMPUTACIÓN', 'Universidad Técnica', 1)
+insertar_carrera('uwu', 'arquitectura', 1)
 consultar_carreras()
-consultar_carrera_por_codigo('SIS30')
-actualizar_carrera_por_id(3, 'INGENIERÍA DE SOFTWARE')  # Actualiza la carrera con id = 2
-eliminar_carrera_por_id(2)
+consultar_carrera_por_codigo('uwu')
+actualizar_carrera_por_id(4, 'ingenieria en ciencias de la computacion')
+eliminar_carrera_por_id(3)
 contar_carreras()
 
 conn.close()
- 
